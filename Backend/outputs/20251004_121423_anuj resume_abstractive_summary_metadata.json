@@ -1,0 +1,10 @@
+{
+  "summary_text": ": 8.646 Bachelor Engineering Computer Engineering Shri Dawale Junior College, Mothi Umri, Akola Percentage : 8.646 Bachelor Engineering Computer Engineering Shri Dawale Junior College, Mothi Umri, Akola Percentage : 9.646 Bachelor Engineering Computer Engineering Shri Dawale Junior College, Mothi Umri, Akola Percentage : 9.646 Bachelor Engineering Computer Engineering Shri Dawale Junior College, Mothi Umri",
+  "original_length": 2740,
+  "summary_length": 409,
+  "compression_ratio": 0.14927007299270073,
+  "model": "facebook/bart-large-cnn",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251004_121423_anuj resume_abstractive_summary.txt"
+}

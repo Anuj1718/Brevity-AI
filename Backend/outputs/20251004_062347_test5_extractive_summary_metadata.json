@@ -1,0 +1,16 @@
+{
+  "summary_text": "Ethical concerns , bias AI systems , job displacement due automation , privacy issues , widely debated . However , AI also presents challenges . widely used fields ranging healthcare education business entertainment . example , healthcare , AI used detect diseases medical images , recommend treatments , even assist drug discovery . Governments organizations working policies ensure responsible ethical AI usage . applications continue grow , making essential area research development .",
+  "summary_sentences": [
+    "Ethical concerns , bias AI systems , job displacement due automation , privacy issues , widely debated .",
+    "However , AI also presents challenges .",
+    "widely used fields ranging healthcare education business entertainment .",
+    "example , healthcare , AI used detect diseases medical images , recommend treatments , even assist drug discovery .",
+    "Governments organizations working policies ensure responsible ethical AI usage .",
+    "applications continue grow , making essential area research development ."
+  ],
+  "original_sentences": 12,
+  "compression_ratio": 0.5,
+  "algorithm": "textrank",
+  "summary_ratio": 0.5,
+  "file_path": "outputs\\20251004_062347_test5_extractive_summary.txt"
+}

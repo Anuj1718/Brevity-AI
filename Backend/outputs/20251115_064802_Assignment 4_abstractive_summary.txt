@@ -1,0 +1,1 @@
+Anuj Sachin Dhole Roll : B21O42 Class : CE Subject : Blockchain Technology Laboratory Practice III Practical 4 Problem Statement : Write program solidity create Student data. Use following constructs : Structures Arrays Fallback Deploy smart contract. Observe transaction fee Gas values Omer came ancrama omen _ noah Jae amare varias.

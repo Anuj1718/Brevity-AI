@@ -1,0 +1,11 @@
+{
+  "summary_text": "Artificial intelligence is transforming world. It helps automation, healthcare, education, many fields. Machines able learn data make predictions. It can also be used to predict future events. It has the potential to revolutionize many fields, including medicine and business.",
+  "original_length": 156,
+  "summary_length": 276,
+  "compression_ratio": 1.7692307692307692,
+  "model": "facebook/bart-large-cnn",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251115_114631_ocr_test_abstractive_summary.txt",
+  "processing_method": "pipeline"
+}

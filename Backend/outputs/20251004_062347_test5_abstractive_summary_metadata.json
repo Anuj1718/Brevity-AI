@@ -1,0 +1,10 @@
+{
+  "summary_text": "AI emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. AI systems analyze large amounts data, recognize patterns, make predictions high accuracy. example, healthcare, AI used detect diseases medical images, recommend treatments, even assist drug discovery. business, AIpowered chatbots provide customer support, machine learning algorithms help fraud detection personalized recommendations. however, AI also presents challenges. Ethical concerns, bias AI systems, job displacement due automation ",
+  "original_length": 1064,
+  "summary_length": 570,
+  "compression_ratio": 0.5357142857142857,
+  "model": "facebook/bart-large-cnn",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251004_062347_test5_abstractive_summary.txt"
+}

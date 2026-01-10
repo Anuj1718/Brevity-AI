@@ -1,0 +1,17 @@
+{
+  "original_summary": "Artificial Intelligence emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. However , AI also presents challenges . Ethical concerns, bias AI systems, job displacement due automation, privacy issues , widely debated. future AI looks promising , requires careful management maximize benefits minimizing risks.",
+  "translated_summary": "21 व्या शतकात आर्टिफिशियल इंटेलिजन्स हे एक परिवर्तनकारी तंत्रज्ञान उदयास आले. हेल्थकेअर एज्युकेशन बिझनेस एंटरटेनमेंट यासारख्या मोठ्या प्रमाणावर वापरलेली फील्ड. तथापि, एआय आव्हाने देखील सादर करते. नैतिक चिंता, पक्षपात एआय सिस्टम, ऑटोमेशनमुळे नोकरीचे विस्थापन, गोपनीयतेच्या समस्या, मोठ्या प्रमाणावर वादविवाद. भविष्यातील AI आश्वासक दिसत आहे, काळजीपूर्वक व्यवस्थापन आवश्यक आहे लाभ वाढवा आणि जोखीम कमी करा.",
+  "source_language": "en",
+  "target_language": "marathi",
+  "summary_type": "abstractive",
+  "provider": "google",
+  "file_path": "outputs\\20251114_144802_test5_abstractive_summary_marathi.txt",
+  "translation_metadata": {
+    "original_text": "Artificial Intelligence emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. However , AI also presents challenges . Ethical concerns, bias AI systems, job displacement due automation, privacy issues , widely debated. future AI looks promising , requires careful management maximize benefits minimizing risks.",
+    "translated_text": "21 व्या शतकात आर्टिफिशियल इंटेलिजन्स हे एक परिवर्तनकारी तंत्रज्ञान उदयास आले. हेल्थकेअर एज्युकेशन बिझनेस एंटरटेनमेंट यासारख्या मोठ्या प्रमाणावर वापरलेली फील्ड. तथापि, एआय आव्हाने देखील सादर करते. नैतिक चिंता, पक्षपात एआय सिस्टम, ऑटोमेशनमुळे नोकरीचे विस्थापन, गोपनीयतेच्या समस्या, मोठ्या प्रमाणावर वादविवाद. भविष्यातील AI आश्वासक दिसत आहे, काळजीपूर्वक व्यवस्थापन आवश्यक आहे लाभ वाढवा आणि जोखीम कमी करा.",
+    "source_language": "en",
+    "target_language": "mr",
+    "provider": "google",
+    "cached": true
+  }
+}

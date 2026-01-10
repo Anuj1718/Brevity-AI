@@ -1,0 +1,19 @@
+{
+  "text": "\n--- Page 1 ---\nfAntificial¥intelligences(AL)Bisgtransformingpthepworlda Geciiines ese am eiifie fear Gem data and cea\n",
+  "page_count": 1,
+  "total_pages": 1,
+  "method": "ocr(eng+hin+mar)",
+  "file_path": "outputs\\20251114_145644_ocr_test_extracted.txt",
+  "pages_extracted": [
+    1
+  ],
+  "file_size_mb": 0.005787849426269531,
+  "text_size_mb": 0.00011348724365234375,
+  "ocr_stats": {
+    "pages_processed": 1,
+    "text_length": 102,
+    "processing_time": 5.687000000005355
+  },
+  "ocr_quality": "high",
+  "preprocessing_enabled": true
+}

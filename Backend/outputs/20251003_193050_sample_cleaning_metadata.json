@@ -1,0 +1,30 @@
+{
+  "cleaned_text": " MOHAN DINKAR mohandinkar75gmail.com  GitHub LinkedIn Summary Finalyear Computer Engineering student skilled fullstack development good understanding Data Structures , Algorithms , database management . Built impactful projects including AI mock interview system , Discord chatbot , travel web platform . Skills C Python JavaScript React.js Next.js Express Node.js MongoDB MySQL Git GitHub Work Experience TechLathe Solutions INTERN Sep2024 Dec2024 Collaborated development team build maintain responsive web interfaces using React.js modern frontend practices . Gained handson experience RESTful APIs , Git version control , UIUX best practices . Education Zeal College Engineering Research ZCOER , Pune  Bachelor Engineering B.E . Computer Engineering CGPA : 8.54 aggregate VI Mahatma Gandhi Vidyalaya Junior College , Manchar , Pune  HSC Class XII : 78.83 Sadhana Vidyalaya , Hadapsar , Pune  SSC Class X : 90.60 Projects PrepVerse AIPowered Mock Interview Platform Developed AI mock interview platform using Next.js , users generate interview questions take realtime voicebased interviews . Integrated Googles Gemini API dynamic question generation Vapi voice assistant interaction . Discord ChatBot Created commandbased Discord chatbot interacts users chat commands . Developed Discord bot using Discord.js Googles Gemini API handle realtime AIpowered conversations slash commands chat . URL Shortener web application generates shortened URLs . Tracks click analytics , provides userfriendly interface managing shortened links . Implemented authentication authorization secure access . Achievements Selected Google Student Ambassador GSA 2025 , representing campus developer community promoting technical growth among peers . Solved 150 Data Structures Algorithms problems across platforms like LeetCode , GFG Positions Responsibility Member GDG Google Developer Group Campus Chapter management team contributed organizing developer events , peerlearning sessions , tech workshops .",
+  "sentences": [
+    "Page 1 MOHAN DINKAR mohandinkar75gmail.com 919067289768 GitHub LinkedIn Summary Finalyear Computer Engineering student skilled fullstack development good understanding Data Structures , Algorithms , database management .",
+    "Built impactful projects including AI mock interview system , Discord chatbot , travel web platform .",
+    "Skills C Python JavaScript React.js Next.js Express Node.js MongoDB MySQL Git GitHub Work Experience TechLathe Solutions INTERN Sep2024 Dec2024 Collaborated development team build maintain responsive web interfaces using React.js modern frontend practices .",
+    "Gained handson experience RESTful APIs , Git version control , UIUX best practices .",
+    "Education Zeal College Engineering Research ZCOER , Pune 2022 2026 Bachelor Engineering B.E .",
+    "Computer Engineering CGPA : 8.54 aggregate VI Mahatma Gandhi Vidyalaya Junior College , Manchar , Pune 2021 2022 HSC Class XII : 78.83 Sadhana Vidyalaya , Hadapsar , Pune 2019 2020 SSC Class X : 90.60 Projects PrepVerse AIPowered Mock Interview Platform Developed AI mock interview platform using Next.js , users generate interview questions take realtime voicebased interviews .",
+    "Integrated Googles Gemini API dynamic question generation Vapi voice assistant interaction .",
+    "Discord ChatBot Created commandbased Discord chatbot interacts users chat commands .",
+    "Developed Discord bot using Discord.js Googles Gemini API handle realtime AIpowered conversations slash commands chat .",
+    "URL Shortener web application generates shortened URLs .",
+    "Tracks click analytics , provides userfriendly interface managing shortened links .",
+    "Implemented authentication authorization secure access .",
+    "Achievements Selected Google Student Ambassador GSA 2025 , representing campus developer community promoting technical growth among peers .",
+    "Solved 150 Data Structures Algorithms problems across platforms like LeetCode , GFG Positions Responsibility Member GDG Google Developer Group Campus Chapter management team contributed organizing developer events , peerlearning sessions , tech workshops ."
+  ],
+  "original_length": 2532,
+  "cleaned_length": 2032,
+  "word_count": 278,
+  "sentence_count": 14,
+  "file_path": "outputs\\20251003_193050_sample_cleaned.txt",
+  "cleaning_options": {
+    "remove_stopwords": true,
+    "normalize_whitespace": true,
+    "remove_special_chars": true,
+    "min_sentence_length": 15
+  }
+}

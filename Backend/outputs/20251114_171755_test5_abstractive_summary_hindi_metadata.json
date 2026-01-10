@@ -1,0 +1,20 @@
+{
+  "original_summary": "Artificial Intelligence emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. However , AI also presents challenges . Ethical concerns, bias AI systems, job displacement due automation, privacy issues , widely debated. future AI looks promising , requires careful management maximize benefits minimizing risks.",
+  "translated_summary": "आर्टिफिशियल इंटेलिजेंस 21वीं सदी में एक परिवर्तनकारी तकनीक बनकर उभरी। स्वास्थ्य देखभाल शिक्षा व्यवसाय मनोरंजन जैसे क्षेत्रों का व्यापक रूप से उपयोग किया जाता है। हालाँकि, AI चुनौतियाँ भी प्रस्तुत करता है। नैतिक चिंताएं, पूर्वाग्रह एआई सिस्टम, स्वचालन के कारण नौकरी विस्थापन, गोपनीयता के मुद्दे, व्यापक रूप से बहस हुई। भविष्य में एआई आशाजनक दिखता है, इसके लिए सावधानीपूर्वक प्रबंधन की आवश्यकता है, अधिकतम लाभ और जोखिम कम करना।",
+  "source_language": "en",
+  "target_language": "hindi",
+  "summary_type": "abstractive",
+  "provider": "google",
+  "file_path": "outputs\\20251114_171755_test5_abstractive_summary_hindi.txt",
+  "translation_metadata": {
+    "original_text": "Artificial Intelligence emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. However , AI also presents challenges . Ethical concerns, bias AI systems, job displacement due automation, privacy issues , widely debated. future AI looks promising , requires careful management maximize benefits minimizing risks.",
+    "translated_text": "आर्टिफिशियल इंटेलिजेंस 21वीं सदी में एक परिवर्तनकारी तकनीक बनकर उभरी। स्वास्थ्य देखभाल शिक्षा व्यवसाय मनोरंजन जैसे क्षेत्रों का व्यापक रूप से उपयोग किया जाता है। हालाँकि, AI चुनौतियाँ भी प्रस्तुत करता है। नैतिक चिंताएं, पूर्वाग्रह एआई सिस्टम, स्वचालन के कारण नौकरी विस्थापन, गोपनीयता के मुद्दे, व्यापक रूप से बहस हुई। भविष्य में एआई आशाजनक दिखता है, इसके लिए सावधानीपूर्वक प्रबंधन की आवश्यकता है, अधिकतम लाभ और जोखिम कम करना।",
+    "source_language": "en",
+    "target_language": "hi",
+    "provider": "google",
+    "success": true,
+    "cached": false,
+    "character_count": 382,
+    "translation_ratio": 1.112565445026178
+  }
+}

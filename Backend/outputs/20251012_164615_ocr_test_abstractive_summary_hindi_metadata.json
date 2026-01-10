@@ -1,0 +1,20 @@
+{
+  "original_summary": "Artificial intelligence transforming world. helps automation, healthcare, education, wany fields. Machines able learn data make predictions. Machine that learns data to make predictions is called a machine that learns from data. Machines that learn data to learn from data are known as machines that learn.",
+  "translated_summary": "कृत्रिम बुद्धिमत्ता दुनिया को बदल रही है। स्वचालन, स्वास्थ्य देखभाल, शिक्षा, विविध क्षेत्रों में मदद करता है। मशीनें डेटा सीखकर भविष्यवाणियां करने में सक्षम हैं। वह मशीन जो पूर्वानुमान लगाने के लिए डेटा सीखती है, वह मशीन कहलाती है जो डेटा से सीखती है। जो मशीनें डेटा से डेटा सीखती हैं उन्हें सीखने वाली मशीनें कहा जाता है।",
+  "source_language": "en",
+  "target_language": "hindi",
+  "summary_type": "abstractive",
+  "provider": "google",
+  "file_path": "outputs\\20251012_164615_ocr_test_abstractive_summary_hindi.txt",
+  "translation_metadata": {
+    "original_text": "Artificial intelligence transforming world. helps automation, healthcare, education, wany fields. Machines able learn data make predictions. Machine that learns data to make predictions is called a machine that learns from data. Machines that learn data to learn from data are known as machines that learn.",
+    "translated_text": "कृत्रिम बुद्धिमत्ता दुनिया को बदल रही है। स्वचालन, स्वास्थ्य देखभाल, शिक्षा, विविध क्षेत्रों में मदद करता है। मशीनें डेटा सीखकर भविष्यवाणियां करने में सक्षम हैं। वह मशीन जो पूर्वानुमान लगाने के लिए डेटा सीखती है, वह मशीन कहलाती है जो डेटा से सीखती है। जो मशीनें डेटा से डेटा सीखती हैं उन्हें सीखने वाली मशीनें कहा जाता है।",
+    "source_language": "en",
+    "target_language": "hi",
+    "provider": "google",
+    "success": true,
+    "cached": false,
+    "character_count": 306,
+    "translation_ratio": 1.0522875816993464
+  }
+}

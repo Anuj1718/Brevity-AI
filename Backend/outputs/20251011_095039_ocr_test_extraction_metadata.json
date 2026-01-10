@@ -1,0 +1,12 @@
+{
+  "text": "",
+  "page_count": 1,
+  "total_pages": 1,
+  "method": "ocr(eng hin mar)",
+  "file_path": "outputs\\20251011_095039_ocr_test_extracted.txt",
+  "pages_extracted": [
+    1
+  ],
+  "file_size_mb": 0.005787849426269531,
+  "text_size_mb": 0.0
+}

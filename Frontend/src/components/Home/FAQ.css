@@ -1,0 +1,78 @@
+/* FAQ — isolated, native details toggle */
+
+.faq-block {
+  padding: clamp(64px, 7vw, 108px) 0 10px;
+}
+
+.faq-title {
+  margin: 0 0 12px;
+  text-align: left;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(26px, 3.6vw, 40px);
+}
+
+.faq-list {
+  width: 100%;
+  margin-top: 6px;
+  display: grid;
+  gap: 0;
+}
+
+/* Each item is a <details> row */
+.faq-row {
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+}
+
+/* Reset summary defaults and build a clean row */
+.faq-q {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 22px 0;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(20px, 2.2vw, 28px);
+  text-align: left;
+}
+.faq-row > summary::-webkit-details-marker,
+.faq-row > summary::marker { display: none; }
+
+/* Answer body */
+.faq-a {
+  padding: 10px 0 22px;
+  color: #cbd5e1;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Plus/minus icon on the right (pure CSS) */
+.faq-q .icon {
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  position: relative;
+  flex-shrink: 0;
+  font-size: 0;
+}
+.faq-q .icon::before,
+.faq-q .icon::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 2px;
+}
+.faq-q .icon::before { width: 16px; height: 2px; }   /* horizontal */
+.faq-q .icon::after  { width: 2px; height: 16px; transition: transform .2s ease; } /* vertical */
+.faq-row[open] .icon::after { transform: translate(-50%, -50%) scaleY(0); } /* plus -> minus */
+
+.faq-q:hover .icon { background: rgba(255,255,255,0.12); }

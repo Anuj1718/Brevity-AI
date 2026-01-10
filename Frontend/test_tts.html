@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button.playing {
+            background: #dc3545;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .status {
+            margin: 20px 0;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔊 Text-to-Speech Test</h1>
+        <p>This page tests the text-to-speech functionality that will be used in the PDF summarization project.</p>
+        
+        <div class="status" id="status">
+            Status: Ready to test
+        </div>
+        
+        <h3>Test Text:</h3>
+        <textarea id="testText" rows="4" cols="80" placeholder="Enter text to test speech synthesis...">
+Hello! This is a test of the text-to-speech functionality. The PDF summarization project now includes audio playback for summaries, allowing users to listen to their generated summaries instead of just reading them.
+        </textarea>
+        
+        <h3>Controls:</h3>
+        <button onclick="speakText()" id="speakBtn">🔊 Speak Text</button>
+        <button onclick="stopSpeech()" id="stopBtn">⏸️ Stop Speech</button>
+        <button onclick="testVoices()">🎤 Test Voices</button>
+        
+        <h3>Voice Selection:</h3>
+        <select id="voiceSelect">
+            <option value="auto">Auto Select</option>
+        </select>
+        
+        <h3>Settings:</h3>
+        <label>Rate: <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="0.9"> <span id="rateValue">0.9</span></label><br>
+        <label>Pitch: <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1.0"> <span id="pitchValue">1.0</span></label><br>
+        <label>Volume: <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1.0"> <span id="volumeValue">1.0</span></label>
+        
+        <h3>Available Voices:</h3>
+        <div id="voicesList"></div>
+    </div>
+
+    <script>
+        let currentUtterance = null;
+        let isPlaying = false;
+        
+        // Initialize voices
+        function loadVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            const voicesList = document.getElementById('voicesList');
+            
+            // Clear existing options
+            voiceSelect.innerHTML = '<option value="auto">Auto Select</option>';
+            voicesList.innerHTML = '';
+            
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(option);
+                
+                const voiceDiv = document.createElement('div');
+                voiceDiv.innerHTML = `<strong>${voice.name}</strong> - ${voice.lang} ${voice.default ? '(Default)' : ''}`;
+                voicesList.appendChild(voiceDiv);
+            });
+        }
+        
+        // Load voices when page loads
+        window.addEventListener('load', () => {
+            loadVoices();
+            // Some browsers load voices asynchronously
+            speechSynthesis.addEventListener('voiceschanged', loadVoices);
+        });
+        
+        // Update slider values
+        document.getElementById('rateSlider').addEventListener('input', (e) => {
+            document.getElementById('rateValue').textContent = e.target.value;
+        });
+        
+        document.getElementById('pitchSlider').addEventListener('input', (e) => {
+            document.getElementById('pitchValue').textContent = e.target.value;
+        });
+        
+        document.getElementById('volumeSlider').addEventListener('input', (e) => {
+            document.getElementById('volumeValue').textContent = e.target.value;
+        });
+        
+        function speakText() {
+            const text = document.getElementById('testText').value;
+            if (!text) {
+                alert('Please enter some text to speak.');
+                return;
+            }
+            
+            if (!window.speechSynthesis) {
+                alert('Text-to-speech is not supported in this browser.');
+                return;
+            }
+            
+            // Stop any current speech
+            if (currentUtterance) {
+                speechSynthesis.cancel();
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Apply settings
+            utterance.rate = parseFloat(document.getElementById('rateSlider').value);
+            utterance.pitch = parseFloat(document.getElementById('pitchSlider').value);
+            utterance.volume = parseFloat(document.getElementById('volumeSlider').value);
+            
+            // Select voice
+            const voiceIndex = document.getElementById('voiceSelect').value;
+            if (voiceIndex !== 'auto') {
+                const voices = speechSynthesis.getVoices();
+                utterance.voice = voices[voiceIndex];
+            }
+            
+            // Set up event listeners
+            utterance.onstart = () => {
+                isPlaying = true;
+                currentUtterance = utterance;
+                document.getElementById('speakBtn').textContent = '🔊 Speaking...';
+                document.getElementById('speakBtn').classList.add('playing');
+                document.getElementById('status').textContent = 'Status: Speaking...';
+            };
+            
+            utterance.onend = () => {
+                isPlaying = false;
+                currentUtterance = null;
+                document.getElementById('speakBtn').textContent = '🔊 Speak Text';
+                document.getElementById('speakBtn').classList.remove('playing');
+                document.getElementById('status').textContent = 'Status: Finished speaking';
+            };
+            
+            utterance.onerror = (event) => {
+                console.error('Speech synthesis error:', event);
+                isPlaying = false;
+                currentUtterance = null;
+                document.getElementById('speakBtn').textContent = '🔊 Speak Text';
+                document.getElementById('speakBtn').classList.remove('playing');
+                document.getElementById('status').textContent = 'Status: Error occurred';
+            };
+            
+            // Start speaking
+            speechSynthesis.speak(utterance);
+        }
+        
+        function stopSpeech() {
+            if (speechSynthesis) {
+                speechSynthesis.cancel();
+                isPlaying = false;
+                currentUtterance = null;
+                document.getElementById('speakBtn').textContent = '🔊 Speak Text';
+                document.getElementById('speakBtn').classList.remove('playing');
+                document.getElementById('status').textContent = 'Status: Speech stopped';
+            }
+        }
+        
+        function testVoices() {
+            const voices = speechSynthesis.getVoices();
+            const testText = "Hello, this is a voice test.";
+            
+            voices.slice(0, 5).forEach((voice, index) => {
+                setTimeout(() => {
+                    const utterance = new SpeechSynthesisUtterance(`${voice.name}: ${testText}`);
+                    utterance.voice = voice;
+                    speechSynthesis.speak(utterance);
+                }, index * 3000);
+            });
+        }
+    </script>
+</body>
+</html>
+

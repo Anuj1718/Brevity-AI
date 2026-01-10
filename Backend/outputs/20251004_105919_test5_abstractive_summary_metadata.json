@@ -1,0 +1,10 @@
+{
+  "summary_text": "AI emerged one transformative technologies 21st century. widely used fields ranging healthcare education business entertainment. AI systems analyze large amounts data, recognize patterns, make predictions high accuracy. business, healthcare, AI used detect diseases medical images, recommend treatments, even assist drug discovery.",
+  "original_length": 1070,
+  "summary_length": 331,
+  "compression_ratio": 0.30934579439252335,
+  "model": "t5-small",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251004_105919_test5_abstractive_summary.txt"
+}

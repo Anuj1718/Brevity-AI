@@ -1,0 +1,20 @@
+{
+  "original_summary": "Anuj Dhole is a graduate of Zeal College Engineering Research, Narhe, Pune. He is currently working as a Web Development Intern at Elite Softwares. He has also completed a 3week handson training program covering Python, Core Java and MongoDB.",
+  "translated_summary": "अनुज ढोले हा झील कॉलेज इंजिनीअरिंग रिसर्च, नर्हे, पुणेचा पदवीधर आहे. तो सध्या Elite Softwares मध्ये वेब डेव्हलपमेंट इंटर्न म्हणून काम करत आहे. त्याने पायथन, कोअर जावा आणि मोंगोडीबीचा 3 आठवड्यांचा हँडसन प्रशिक्षण कार्यक्रम देखील पूर्ण केला आहे.",
+  "source_language": "en",
+  "target_language": "marathi",
+  "summary_type": "abstractive",
+  "provider": "google",
+  "file_path": "outputs\\20251114_193402_anuj resume_abstractive_summary_marathi.txt",
+  "translation_metadata": {
+    "original_text": "Anuj Dhole is a graduate of Zeal College Engineering Research, Narhe, Pune. He is currently working as a Web Development Intern at Elite Softwares. He has also completed a 3week handson training program covering Python, Core Java and MongoDB.",
+    "translated_text": "अनुज ढोले हा झील कॉलेज इंजिनीअरिंग रिसर्च, नर्हे, पुणेचा पदवीधर आहे. तो सध्या Elite Softwares मध्ये वेब डेव्हलपमेंट इंटर्न म्हणून काम करत आहे. त्याने पायथन, कोअर जावा आणि मोंगोडीबीचा 3 आठवड्यांचा हँडसन प्रशिक्षण कार्यक्रम देखील पूर्ण केला आहे.",
+    "source_language": "en",
+    "target_language": "mr",
+    "provider": "google",
+    "success": true,
+    "cached": false,
+    "character_count": 242,
+    "translation_ratio": 1.0041322314049588
+  }
+}

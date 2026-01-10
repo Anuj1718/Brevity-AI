@@ -1,0 +1,102 @@
+:root {
+  /* your existing theme tokens */
+  --bg: #0b0f1a;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #eef2ff;
+  --muted: #cbd5e1;
+  --primary: #ffffff;
+  --primary-ink: #0b0f1a;
+
+  /* NEW: layout + elevation tokens */
+  --container-max: 1200px;                    /* site default width */
+  --container-pad: clamp(16px, 4vw, 40px);    /* responsive side padding */
+  --section-y: clamp(40px, 6vw, 96px);        /* vertical rhythm */
+  --stack-gap: clamp(12px, 2.2vw, 28px);      /* vertical spacing utility */
+
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.25);
+  --shadow-float: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* REPLACED: container now uses tokens */
+.container { width: min(1200px, 92%); margin-inline: auto; }
+
+/* Shared buttons */
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn.primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.08);
+}
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn.outline { background: rgba(255, 255, 255, 0.06); border-color: var(--border); }
+
+/* NEW: button sizes and states */
+.btn--lg { padding: 12px 18px; border-radius: 14px; font-size: 15px; }
+.btn--sm { padding: 8px 12px; border-radius: 10px; font-size: 14px; }
+.btn:disabled, .btn.disabled { opacity: .6; cursor: not-allowed; transform: none; }
+.btn.primary:hover { box-shadow: 0 10px 30px rgba(255,255,255,0.10); }
+.btn.gradient {
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  color: #0b0f1a;
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 10px 30px rgba(34,211,238,0.25), 0 6px 20px rgba(139,92,246,0.25);
+}
+
+/* Focus styles */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* NEW: utilities for consistent spacing and surfaces */
+.section { padding-block: var(--section-y); }
+.stack { display: grid; gap: var(--stack-gap); }
+.cluster { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-soft);
+}
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-16);
+}
+
+/* NEW: type scale (safe defaults, your component styles can override) */
+h1 { font-size: clamp(28px, 5vw, 54px); line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-size: clamp(22px, 3.6vw, 40px); line-height: 1.15; letter-spacing: -0.02em; }
+h3 { font-size: clamp(18px, 2.2vw, 22px); }
+p  { line-height: 1.6; color: var(--muted); }

@@ -1,0 +1,18 @@
+{
+  "cleaned_text": "Page 1 Name : Anuj Sachin Dhole Roll : B21O42 Class : CE Subject : Blockchain Technology Laboratory Practice III Practical 4 Problem Statement : Write program solidity create Student data . Use following constructs : Structures Arrays Fallback Deploy smart contract Ethereum Observe transaction fee Gas values Omer came ancrama omen _ noah Jae amare varias Page 2 Bi ome Gum Om Omer Crom cons neste tenatet vem 3 asoa tn _e Baes vee yu nes wtanl Ganlo : Omem E CEs Oo Com ght aed Ms asgeoatna _r Baen WR OL Page 3 Omen imme asceatna .re Baan cee , , tremens 21s sie ad 5OO1 OE OS Deploy acontract ad ent eomeee ie ep cone se eee asoa tn _e BBE vee , , Page 4 Ome Comm Omer Creme Es mm ascatn _e Baa 728 eee Ae ao 1O hana Omer came egitayed Conta Es7_ as8geoatn _e Bae cen , Page 5 BQAasoetme ee4eBan Tee Py Omern Cae BC aa Bpasoaetme ee4Ba8 cee Page 6 otis weer Ome Oem oe Omer crm az asoa tn .er : Baa 7O Tee oun wmne Cum Transaction request UT aa : mate nates charge : ewes vane toe aaZ asoatn _e Band cow yt Page 7 Omen ome BLS concra nn CE ce : noms rantore ereet 1 Deployed Comvacts LJ 2qgseoaeme ee4O : Baa een : Treeasction Detas 2nasoe etme e9e41Oma8 oT cen Page 8 Omer Crome ez aseoa tn _e Baan ride Contract cephoyment scores aseoa etn _e : aO 22 Tee ou Page 9 Aes Sree ny ng asoa tn _r : Baa 72 F9O8 owe Bi ome Cum Om ec Omer Came aZ asecoatn _r : Bac oT 988 vans",
+  "sentences": [
+    "Page 1 Name : Anuj Sachin Dhole Roll : B21O42 Class : CE Subject : Blockchain Technology Laboratory Practice III Practical 4 Problem Statement : Write program solidity create Student data .",
+    "Use following constructs : Structures Arrays Fallback Deploy smart contract Ethereum Observe transaction fee Gas values Omer came ancrama omen _ noah Jae amare varias Page 2 Bi ome Gum Om Omer Crom cons neste tenatet vem 3 asoa tn _e Baes vee yu nes wtanl Ganlo : Omem E CEs Oo Com ght aed Ms asgeoatna _r Baen WR OL Page 3 Omen imme asceatna .re Baan cee , , tremens 21s sie ad 5OO1 OE OS Deploy acontract ad ent eomeee ie ep cone se eee asoa tn _e BBE vee , , Page 4 Ome Comm Omer Creme Es mm ascatn _e Baa 728 eee Ae ao 1O hana Omer came egitayed Conta Es7_ as8geoatn _e Bae cen , Page 5 BQAasoetme ee4eBan Tee Py Omern Cae BC aa Bpasoaetme ee4Ba8 cee Page 6 otis weer Ome Oem oe Omer crm az asoa tn .er : Baa 7O Tee oun wmne Cum Transaction request UT aa : mate nates charge : ewes vane toe aaZ asoatn _e Band cow yt Page 7 Omen ome BLS concra nn CE ce : noms rantore ereet 1 Deployed Comvacts LJ 2qgseoaeme ee4O : Baa een : Treeasction Detas 2nasoe etme e9e41Oma8 oT cen Page 8 Omer Crome ez aseoa tn _e Baan ride Contract cephoyment scores aseoa etn _e : aO 22 Tee ou Page 9 Aes Sree ny ng asoa tn _r : Baa 72 F9O8 owe Bi ome Cum Om ec Omer Came aZ asecoatn _r : Bac oT 988 vans"
+  ],
+  "original_length": 1679,
+  "cleaned_length": 1374,
+  "word_count": 285,
+  "sentence_count": 2,
+  "file_path": "outputs\\20251115_064802_Assignment 4_cleaned.txt",
+  "cleaning_options": {
+    "remove_stopwords": true,
+    "normalize_whitespace": true,
+    "remove_special_chars": true,
+    "min_sentence_length": 15
+  }
+}

@@ -1,0 +1,144 @@
+/* User Showcase Glassmorphism Styles */
+.user-showcase {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.user-showcase:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.user-showcase-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-showcase-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.user-showcase-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-showcase-avatar .avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.user-showcase-name {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Size variants */
+.user-showcase--small {
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.user-showcase--small .user-showcase-avatar {
+  width: 28px;
+  height: 28px;
+}
+
+.user-showcase--small .user-showcase-name {
+  font-size: 13px;
+}
+
+.user-showcase--large {
+  padding: 12px 20px;
+  border-radius: 28px;
+}
+
+.user-showcase--large .user-showcase-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.user-showcase--large .user-showcase-name {
+  font-size: 16px;
+}
+
+/* Style variants */
+.user-showcase--minimal {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.user-showcase--minimal:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.user-showcase--elevated {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.user-showcase--elevated:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .user-showcase {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .user-showcase:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}

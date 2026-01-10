@@ -1,0 +1,20 @@
+{
+  "original_summary": "The Anuj Sachin Dhole Roll is designed to help people develop effective communication skills. It emphasizes listening, clear communication, visionary thinking, structured planning, impactful presentations. The roll has a number of spheres, including the importance of listening, vision charisma and engagement.",
+  "translated_summary": "अनुज सचिन ढोले रोल लोकांना प्रभावी संवाद कौशल्य विकसित करण्यात मदत करण्यासाठी डिझाइन केले आहे. हे ऐकणे, स्पष्ट संवाद, दूरदर्शी विचार, संरचित नियोजन, प्रभावी सादरीकरण यावर जोर देते. रोलमध्ये ऐकण्याचे महत्त्व, दृष्टी करिष्मा आणि प्रतिबद्धता यासह अनेक क्षेत्रे आहेत.",
+  "source_language": "en",
+  "target_language": "marathi",
+  "summary_type": "abstractive",
+  "provider": "google",
+  "file_path": "outputs\\20251115_064109_audit 1_abstractive_summary_marathi.txt",
+  "translation_metadata": {
+    "original_text": "The Anuj Sachin Dhole Roll is designed to help people develop effective communication skills. It emphasizes listening, clear communication, visionary thinking, structured planning, impactful presentations. The roll has a number of spheres, including the importance of listening, vision charisma and engagement.",
+    "translated_text": "अनुज सचिन ढोले रोल लोकांना प्रभावी संवाद कौशल्य विकसित करण्यात मदत करण्यासाठी डिझाइन केले आहे. हे ऐकणे, स्पष्ट संवाद, दूरदर्शी विचार, संरचित नियोजन, प्रभावी सादरीकरण यावर जोर देते. रोलमध्ये ऐकण्याचे महत्त्व, दृष्टी करिष्मा आणि प्रतिबद्धता यासह अनेक क्षेत्रे आहेत.",
+    "source_language": "en",
+    "target_language": "mr",
+    "provider": "google",
+    "success": true,
+    "cached": false,
+    "character_count": 310,
+    "translation_ratio": 0.8483870967741935
+  }
+}

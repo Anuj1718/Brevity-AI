@@ -1,0 +1,11 @@
+{
+  "summary_text": "Artificial Intelligence is one of the most transformative technologies 21st century. It is used in fields ranging from healthcare to business and entertainment. However, AI also presents challenges such as bias, job displacement and privacy issues. Future of AI looks promising, requires careful management maximize benefits and minimize risks.",
+  "original_length": 1064,
+  "summary_length": 344,
+  "compression_ratio": 0.3233082706766917,
+  "model": "facebook/bart-large-cnn",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251012_153855_test5_abstractive_summary.txt",
+  "processing_method": "pipeline"
+}

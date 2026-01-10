@@ -1,0 +1,11 @@
+{
+  "summary_text": "AntificialintelligencesALBisgtransformingpthepworlda Geciiines ese eiifie fear of data. Gem data cea. Page 1 fAnt artificialintelligentsiaALBISgtrans transformingpt hep world. Page 2 fAntificialIntelligencesalBisGtransformingPThep worlda.",
+  "original_length": 99,
+  "summary_length": 238,
+  "compression_ratio": 2.404040404040404,
+  "model": "facebook/bart-large-cnn",
+  "max_length": 200,
+  "min_length": 50,
+  "file_path": "outputs\\20251114_145644_ocr_test_abstractive_summary.txt",
+  "processing_method": "pipeline"
+}

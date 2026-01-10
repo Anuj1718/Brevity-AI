@@ -1,0 +1,19 @@
+{
+  "text": "\n--- Page 1 ---\nArtificial intelligence (AI) transforming the world. It helps automation, healthcare, education, many more fields. Machines are now able learn data make predictions.\n",
+  "page_count": 1,
+  "total_pages": 1,
+  "method": "ocr(eng+hin+mar)",
+  "file_path": "outputs\\20251115_114631_ocr_test_extracted.txt",
+  "pages_extracted": [
+    1
+  ],
+  "file_size_mb": 0.005787849426269531,
+  "text_size_mb": 0.0001735687255859375,
+  "ocr_stats": {
+    "pages_processed": 1,
+    "text_length": 165,
+    "processing_time": 3.6090000000003783
+  },
+  "ocr_quality": "high",
+  "preprocessing_enabled": true
+}

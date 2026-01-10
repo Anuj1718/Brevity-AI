@@ -1,0 +1,28 @@
+{
+  "cleaned_text": " Artificial Intelligence Overview Artificial Intelligence AI emerged one transformative technologies 21st century . widely used fields ranging healthcare education business entertainment . AI systems analyze large amounts data , recognize patterns , make predictions high accuracy . example , healthcare , AI used detect diseases medical images , recommend treatments , even assist drug discovery . business , AIpowered chatbots provide customer support , machine learning algorithms help fraud detection personalized recommendations . However , AI also presents challenges . Ethical concerns , bias AI systems , job displacement due automation , privacy issues , widely debated . Governments organizations working policies ensure responsible ethical AI usage . future AI looks promising , requires careful management maximize benefits minimizing risks . conclusion , AI powerful technology reshaping industries society . applications continue grow , making essential area research development . balance innovation ethics determine beneficial AI becomes humanity .",
+  "sentences": [
+    "Page 1 Artificial Intelligence Overview Artificial Intelligence AI emerged one transformative technologies 21st century .",
+    "widely used fields ranging healthcare education business entertainment .",
+    "AI systems analyze large amounts data , recognize patterns , make predictions high accuracy .",
+    "example , healthcare , AI used detect diseases medical images , recommend treatments , even assist drug discovery .",
+    "business , AIpowered chatbots provide customer support , machine learning algorithms help fraud detection personalized recommendations .",
+    "However , AI also presents challenges .",
+    "Ethical concerns , bias AI systems , job displacement due automation , privacy issues , widely debated .",
+    "Governments organizations working policies ensure responsible ethical AI usage .",
+    "future AI looks promising , requires careful management maximize benefits minimizing risks .",
+    "conclusion , AI powerful technology reshaping industries society .",
+    "applications continue grow , making essential area research development .",
+    "balance innovation ethics determine beneficial AI becomes humanity ."
+  ],
+  "original_length": 1296,
+  "cleaned_length": 1070,
+  "word_count": 151,
+  "sentence_count": 12,
+  "file_path": "outputs\\20251012_153855_test5_cleaned.txt",
+  "cleaning_options": {
+    "remove_stopwords": true,
+    "normalize_whitespace": true,
+    "remove_special_chars": true,
+    "min_sentence_length": 15
+  }
+}

@@ -1,0 +1,52 @@
+.services {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(40px, 6vw, 96px) 0;
+  --container-max: 1440px;
+}
+.services .container {
+  width: min(var(--container-max), calc(100% - 2 * clamp(16px, 3vw, 36px)));
+  margin-inline: auto;
+}
+.services-bg {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(1000px 520px at 12% 12%, rgba(139,92,246,0.14), transparent 60%),
+    radial-gradient(1000px 520px at 88% 20%, rgba(34,211,238,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+.services-head { text-align: center; margin-bottom: clamp(18px, 4vw, 34px); }
+.services-title { margin: 0 0 8px; font-weight: 800; letter-spacing: -0.02em; }
+.services-sub { margin: 0; color: var(--muted); }
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2.4vw, 24px);
+}
+@media (max-width: 980px){ .svc-grid { grid-template-columns: 1fr; } }
+
+.svc-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 20px;
+  padding: clamp(18px, 2.2vw, 24px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 16px 42px rgba(0,0,0,.45);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.svc-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.28); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 24px 64px rgba(0,0,0,.55); }
+
+.svc-icon {
+  width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; color: #0b0f1a;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 8px 22px rgba(0,0,0,.25);
+  margin-bottom: 10px;
+}
+.acc-blue   { background: radial-gradient(70% 70% at 30% 30%, #bfdbfe, #3b82f6); border: 1px solid rgba(59,130,246,.65); }
+.acc-violet { background: radial-gradient(70% 70% at 30% 30%, #c4b5fd, #8b5cf6); border: 1px solid rgba(139,92,246,.65); }
+.acc-green  { background: radial-gradient(70% 70% at 30% 30%, #bbf7d0, #34d399); border: 1px solid rgba(52,211,153,.65); }
+
+.svc-title { margin: 6px 0 6px; font-weight: 800; font-size: 18px; }
+.svc-desc { margin: 0 0 10px; color: #cbd5e1; }
+.svc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; color: #dbeafe; }
+.svc-item { font-size: 14px; }
