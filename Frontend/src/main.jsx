@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext'
-// Import dotlottie-player to register the custom element
-import '@dotlottie/player-component'
+// Import dotlottie-wc to register the custom element (replacing deprecated @dotlottie/player-component)
+import '@lottiefiles/dotlottie-wc'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

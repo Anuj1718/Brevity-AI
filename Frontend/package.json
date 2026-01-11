@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dotlottie/player-component": "^2.7.12",
     "@lottiefiles/dotlottie-wc": "^0.8.7",
     "@splinetool/react-spline": "^4.1.0",
     "firebase": "^12.6.0",

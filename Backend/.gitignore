@@ -28,6 +28,11 @@ uploads/*.pdf
 uploads/*
 !uploads/.gitkeep
 
+# Input PDFs folder
+input_pdfs/*.pdf
+input_pdfs/*
+!input_pdfs/.gitkeep
+
 # Output files
 outputs/*.txt
 outputs/*.json

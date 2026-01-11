@@ -102,22 +102,51 @@ export default function Upload() {
     utterance.pitch = 1.0;
     utterance.volume = 1.0;
 
-    // Try to find a suitable voice
-    const voices = window.speechSynthesis.getVoices();
-    const preferredVoices = {
-      'en-US': ['Microsoft Zira - English (United States)', 'Google US English'],
-      'hi-IN': ['Microsoft Hemant - Hindi (India)', 'Google हिन्दी'],
-      'mr-IN': ['Microsoft Kalpana - Marathi (India)', 'Google मराठी']
+    // Helper function to find voice with retries (voices may load async)
+    const findAndSpeak = () => {
+      const voices = window.speechSynthesis.getVoices();
+      
+      // Language code mappings for better matching
+      const langMappings = {
+        'hi-IN': ['hi-IN', 'hi', 'hin'],
+        'mr-IN': ['mr-IN', 'mr', 'mar'],
+        'en-US': ['en-US', 'en-GB', 'en']
+      };
+
+      const preferredVoices = {
+        'en-US': ['Microsoft Zira', 'Google US English', 'Samantha', 'Alex'],
+        'hi-IN': ['Microsoft Hemant', 'Microsoft Kalpana', 'Google हिन्दी', 'Hindi', 'hi-IN'],
+        'mr-IN': ['Microsoft Kalpana', 'Google मराठी', 'Marathi', 'mr-IN']
+      };
+
+      const langCodes = langMappings[language] || [language, language.split('-')[0]];
+      const preferred = preferredVoices[language] || [];
+
+      // First try to find preferred voice by name
+      let selectedVoice = voices.find(voice => 
+        preferred.some(pref => voice.name.toLowerCase().includes(pref.toLowerCase()))
+      );
+
+      // If no preferred voice, find any voice matching the language
+      if (!selectedVoice) {
+        selectedVoice = voices.find(voice => 
+          langCodes.some(code => voice.lang.toLowerCase().startsWith(code.toLowerCase()))
+        );
+      }
+
+      // Final fallback to first available voice
+      if (!selectedVoice && voices.length > 0) {
+        selectedVoice = voices[0];
+        console.warn(`No voice found for ${language}, using default: ${selectedVoice.name}`);
+      }
+
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+        console.log(`Using voice: ${selectedVoice.name} (${selectedVoice.lang}) for language: ${language}`);
+      }
+
+      return selectedVoice;
     };
-
-    const preferred = preferredVoices[language] || preferredVoices['en-US'];
-    const selectedVoice = voices.find(voice => 
-      preferred.some(pref => voice.name.includes(pref.split(' ')[1]))
-    ) || voices.find(voice => voice.lang.startsWith(language.split('-')[0])) || voices[0];
-
-    if (selectedVoice) {
-      utterance.voice = selectedVoice;
-    }
 
     // Set up event listeners
     utterance.onstart = () => {
@@ -134,11 +163,24 @@ export default function Upload() {
       console.error('Speech synthesis error:', event);
       setIsPlaying(false);
       setCurrentUtterance(null);
-      alert('Error occurred while reading text aloud.');
+      // Only show alert for actual errors, not interruptions
+      if (event.error !== 'interrupted' && event.error !== 'canceled') {
+        alert(`Text-to-speech error for ${language}. Your browser may not support this language.`);
+      }
     };
 
-    // Start speaking
-    window.speechSynthesis.speak(utterance);
+    // Voices may not be loaded immediately, wait for them
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length === 0) {
+      // Wait for voices to load then speak
+      window.speechSynthesis.onvoiceschanged = () => {
+        findAndSpeak();
+        window.speechSynthesis.speak(utterance);
+      };
+    } else {
+      findAndSpeak();
+      window.speechSynthesis.speak(utterance);
+    }
   }
 
   function stopSpeech() {

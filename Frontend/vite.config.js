@@ -5,21 +5,27 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: ['@dotlottie/player-component'],
+    exclude: ['@lottiefiles/dotlottie-wc'],
     esbuildOptions: {
       target: 'esnext'
     }
   },
   build: {
+    chunkSizeWarningLimit: 1000, // Increase from default 500kb to avoid warnings
     commonjsOptions: {
       include: [/node_modules/],
       transformMixedEsModules: true
     },
     rollupOptions: {
-      external: []
+      external: [],
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom']
+        }
+      }
     }
   },
   ssr: {
-    noExternal: ['@dotlottie/player-component']
+    noExternal: ['@lottiefiles/dotlottie-wc']
   }
 })
