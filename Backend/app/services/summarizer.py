@@ -82,7 +82,14 @@ class OptimizedTextSummarizer:
             raise ValueError(f"Unsupported algorithm: {algorithm}")
 
         summary_text = " ".join(summary_sentences)
-        compression_ratio = len(summary_sentences) / original_sentences
+        # Compression ratio = how much was removed (0.7 = 70% compression)
+        compression_ratio = 1 - (len(summary_sentences) / original_sentences)
+        
+        # Calculate word counts for display
+        summary_word_count = len(summary_text.split())
+        # Estimate original word count from sentences
+        full_text = " ".join(sentences)
+        original_word_count = len(full_text.split())
 
         output_filename = f"{os.path.splitext(filename)[0]}_extractive_summary.txt"
         output_path = os.path.join(self.output_dir, output_filename)
@@ -93,6 +100,8 @@ class OptimizedTextSummarizer:
             "summary_text": summary_text,
             "summary_sentences": summary_sentences,
             "original_sentences": original_sentences,
+            "original_length": original_word_count,
+            "summary_length": summary_word_count,
             "compression_ratio": compression_ratio,
             "algorithm": algorithm,
             "summary_ratio": summary_ratio,
@@ -139,8 +148,10 @@ class OptimizedTextSummarizer:
                 self._load_abstractive_model(model)
             summary_text = await self._chunked_summarize(text, max_length, min_length)
 
-        summary_length = len(summary_text)
-        compression_ratio = summary_length / original_length if original_length > 0 else 0
+        # Calculate using word counts
+        original_word_count = len(text.split())
+        summary_word_count = len(summary_text.split())
+        compression_ratio = 1 - (summary_word_count / original_word_count) if original_word_count > 0 else 0
 
         output_filename = f"{os.path.splitext(filename)[0]}_abstractive_summary.txt"
         output_path = os.path.join(self.output_dir, output_filename)
@@ -149,8 +160,8 @@ class OptimizedTextSummarizer:
 
         metadata = {
             "summary_text": summary_text,
-            "original_length": original_length,
-            "summary_length": summary_length,
+            "original_length": original_word_count,
+            "summary_length": summary_word_count,
             "compression_ratio": compression_ratio,
             "model": model,
             "max_length": max_length,

@@ -57,6 +57,9 @@ class TextCleaner:
         # Clean the text
         cleaned_text = original_text
         
+        # Always remove page markers first
+        cleaned_text = self.text_utils.remove_page_markers(cleaned_text)
+        
         if normalize_whitespace:
             cleaned_text = self._normalize_whitespace(cleaned_text)
         
