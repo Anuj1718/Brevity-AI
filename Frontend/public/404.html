@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
+  <title>Brevity.AI</title>
   <script>
-    // Redirect to index.html with the full path preserved
-    sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
-    window.location.href = '/';
+    // Simple redirect - let React Router handle the path
+    window.location.replace('/' + window.location.search + window.location.hash);
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>Loading...</p>
 </body>
 </html>
