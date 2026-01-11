@@ -74,7 +74,7 @@ export default function Upload() {
     setSettings(prev => ({ ...prev, ...newSettings }));
   }
 
-  // Text-to-Speech functionality
+  // Text-to-Speech functionality using Google Translate TTS for Hindi/Marathi
   function speakText(text, language = 'en-US') {
     // Stop any current speech
     if (currentUtterance) {
@@ -88,6 +88,12 @@ export default function Upload() {
       return;
     }
 
+    // For Hindi and Marathi, use Google Translate TTS (more reliable)
+    if (language === 'hi-IN' || language === 'mr-IN') {
+      playGoogleTTS(text, language);
+      return;
+    }
+
     // Check if speech synthesis is supported
     if (!window.speechSynthesis) {
       alert('Text-to-speech is not supported in this browser.');
@@ -98,57 +104,42 @@ export default function Upload() {
     
     // Configure voice settings
     utterance.lang = language;
-    utterance.rate = 0.9; // Slightly slower for better comprehension
+    utterance.rate = 0.9;
     utterance.pitch = 1.0;
     utterance.volume = 1.0;
 
-    // Helper function to find voice with retries (voices may load async)
+    // Helper function to find voice
     const findAndSpeak = () => {
       const voices = window.speechSynthesis.getVoices();
       
-      // Language code mappings for better matching
-      const langMappings = {
-        'hi-IN': ['hi-IN', 'hi', 'hin'],
-        'mr-IN': ['mr-IN', 'mr', 'mar'],
-        'en-US': ['en-US', 'en-GB', 'en']
-      };
-
       const preferredVoices = {
         'en-US': ['Microsoft Zira', 'Google US English', 'Samantha', 'Alex'],
-        'hi-IN': ['Microsoft Hemant', 'Microsoft Kalpana', 'Google हिन्दी', 'Hindi', 'hi-IN'],
-        'mr-IN': ['Microsoft Kalpana', 'Google मराठी', 'Marathi', 'mr-IN']
+        'en-GB': ['Google UK English', 'Microsoft Hazel']
       };
 
-      const langCodes = langMappings[language] || [language, language.split('-')[0]];
-      const preferred = preferredVoices[language] || [];
+      const preferred = preferredVoices[language] || preferredVoices['en-US'];
 
-      // First try to find preferred voice by name
       let selectedVoice = voices.find(voice => 
         preferred.some(pref => voice.name.toLowerCase().includes(pref.toLowerCase()))
       );
 
-      // If no preferred voice, find any voice matching the language
       if (!selectedVoice) {
         selectedVoice = voices.find(voice => 
-          langCodes.some(code => voice.lang.toLowerCase().startsWith(code.toLowerCase()))
+          voice.lang.toLowerCase().startsWith(language.split('-')[0].toLowerCase())
         );
       }
 
-      // Final fallback to first available voice
       if (!selectedVoice && voices.length > 0) {
         selectedVoice = voices[0];
-        console.warn(`No voice found for ${language}, using default: ${selectedVoice.name}`);
       }
 
       if (selectedVoice) {
         utterance.voice = selectedVoice;
-        console.log(`Using voice: ${selectedVoice.name} (${selectedVoice.lang}) for language: ${language}`);
       }
 
       return selectedVoice;
     };
 
-    // Set up event listeners
     utterance.onstart = () => {
       setIsPlaying(true);
       setCurrentUtterance(utterance);
@@ -163,16 +154,13 @@ export default function Upload() {
       console.error('Speech synthesis error:', event);
       setIsPlaying(false);
       setCurrentUtterance(null);
-      // Only show alert for actual errors, not interruptions
       if (event.error !== 'interrupted' && event.error !== 'canceled') {
-        alert(`Text-to-speech error for ${language}. Your browser may not support this language.`);
+        alert(`Text-to-speech error. Please try again.`);
       }
     };
 
-    // Voices may not be loaded immediately, wait for them
     const voices = window.speechSynthesis.getVoices();
     if (voices.length === 0) {
-      // Wait for voices to load then speak
       window.speechSynthesis.onvoiceschanged = () => {
         findAndSpeak();
         window.speechSynthesis.speak(utterance);
@@ -183,12 +171,126 @@ export default function Upload() {
     }
   }
 
-  function stopSpeech() {
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
+  // Google Translate TTS for Hindi/Marathi (more reliable than browser TTS)
+  function playGoogleTTS(text, language) {
+    const langCode = language === 'hi-IN' ? 'hi' : 'mr';
+    
+    // Split text into chunks (Google TTS has ~200 char limit per request)
+    const maxChunkLength = 180;
+    const chunks = [];
+    let remainingText = text;
+    
+    while (remainingText.length > 0) {
+      if (remainingText.length <= maxChunkLength) {
+        chunks.push(remainingText);
+        break;
+      }
+      
+      // Find a good break point (period, comma, or space)
+      let breakPoint = remainingText.lastIndexOf('।', maxChunkLength); // Hindi/Marathi full stop
+      if (breakPoint === -1) breakPoint = remainingText.lastIndexOf('.', maxChunkLength);
+      if (breakPoint === -1) breakPoint = remainingText.lastIndexOf(',', maxChunkLength);
+      if (breakPoint === -1) breakPoint = remainingText.lastIndexOf(' ', maxChunkLength);
+      if (breakPoint === -1) breakPoint = maxChunkLength;
+      
+      chunks.push(remainingText.substring(0, breakPoint + 1).trim());
+      remainingText = remainingText.substring(breakPoint + 1).trim();
+    }
+
+    setIsPlaying(true);
+    let currentChunkIndex = 0;
+    let currentAudio = null;
+
+    const playNextChunk = () => {
+      if (currentChunkIndex >= chunks.length) {
+        setIsPlaying(false);
+        setCurrentUtterance(null);
+        return;
+      }
+
+      const chunk = chunks[currentChunkIndex];
+      const encodedText = encodeURIComponent(chunk);
+      const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodedText}&tl=${langCode}&client=tw-ob`;
+
+      currentAudio = new Audio(audioUrl);
+      currentAudio.playbackRate = 0.9; // Slightly slower for clarity
+      
+      currentAudio.onended = () => {
+        currentChunkIndex++;
+        playNextChunk();
+      };
+
+      currentAudio.onerror = (e) => {
+        console.error('Google TTS error:', e);
+        // Fallback to browser TTS if Google TTS fails
+        fallbackToBrowserTTS(text, language);
+      };
+
+      currentAudio.play().catch(err => {
+        console.error('Audio play error:', err);
+        fallbackToBrowserTTS(text, language);
+      });
+
+      // Store reference for stopping
+      setCurrentUtterance({ audio: currentAudio, stop: () => {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentChunkIndex = chunks.length; // Stop playing more chunks
+      }});
+    };
+
+    playNextChunk();
+  }
+
+  // Fallback to browser TTS if Google TTS fails
+  function fallbackToBrowserTTS(text, language) {
+    if (!window.speechSynthesis) {
+      alert('Text-to-speech is not available. Please try a different browser.');
+      setIsPlaying(false);
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    utterance.rate = 0.8;
+
+    const voices = window.speechSynthesis.getVoices();
+    const langCode = language.split('-')[0];
+    const matchingVoice = voices.find(v => v.lang.startsWith(langCode));
+    
+    if (matchingVoice) {
+      utterance.voice = matchingVoice;
+    } else {
+      alert(`No voice available for ${language === 'hi-IN' ? 'Hindi' : 'Marathi'}. Your browser may not support this language.`);
+      setIsPlaying(false);
+      return;
+    }
+
+    utterance.onend = () => {
       setIsPlaying(false);
       setCurrentUtterance(null);
+    };
+
+    utterance.onerror = () => {
+      setIsPlaying(false);
+      setCurrentUtterance(null);
+    };
+
+    window.speechSynthesis.speak(utterance);
+    setCurrentUtterance(utterance);
+  }
+
+  function stopSpeech() {
+    // Stop Google TTS audio if playing
+    if (currentUtterance && currentUtterance.audio) {
+      currentUtterance.stop();
     }
+    // Stop browser TTS
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    setIsPlaying(false);
+    setCurrentUtterance(null);
   }
 
   function getSummaryText() {
