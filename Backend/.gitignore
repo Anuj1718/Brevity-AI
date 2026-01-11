@@ -18,11 +18,46 @@ dist/
 
 # Environment variables file
 .env
+.env.local
+.env.production
+.env.development
+*.env
+
+# Uploaded files (if using local storage - should use cloud storage in production)
+uploads/*.pdf
+uploads/*
+!uploads/.gitkeep
+
+# Output files
+outputs/*.txt
+outputs/*.json
+outputs/*
+!outputs/.gitkeep
+
+# Model files and large data
+*.pkl
+*.h5
+*.model
+*.bin
 
 # IDE files
 .vscode/
 .idea/
+*.code-workspace
 
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Temporary files
+*.tmp
+*.temp

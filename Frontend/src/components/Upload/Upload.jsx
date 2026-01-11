@@ -409,20 +409,47 @@ export default function Upload() {
     const originalName = files[0].name;
 
     try {
-      // Step 1: Upload file
+      // Step 1: Upload file with progress tracking
       setProcessingStep('Uploading file...');
-      setProgress(10);
+      setProgress(0);
       
       const formData = new FormData();
       formData.append('file', files[0]);
 
-      const uploadResp = await fetch(`${API_BASE}/api/upload/pdf`, {
-        method: 'POST',
-        body: formData,
+      // Use XMLHttpRequest for upload progress tracking
+      const uploadJson = await new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        
+        // Track upload progress
+        xhr.upload.addEventListener('progress', (e) => {
+          if (e.lengthComputable) {
+            const percentComplete = Math.round((e.loaded / e.total) * 100);
+            setProgress(Math.min(percentComplete * 0.3, 30)); // Scale to 0-30%
+            setProcessingStep(`Uploading file... ${percentComplete}%`);
+          }
+        });
+        
+        xhr.addEventListener('load', () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            try {
+              resolve(JSON.parse(xhr.responseText));
+            } catch {
+              resolve(null);
+            }
+          } else {
+            reject(new Error(`Upload failed with status ${xhr.status}`));
+          }
+        });
+        
+        xhr.addEventListener('error', () => {
+          reject(new Error('Upload failed due to network error'));
+        });
+        
+        xhr.open('POST', `${API_BASE}/api/upload/pdf`);
+        xhr.send(formData);
       });
 
-      const uploadJson = await safeJson(uploadResp);
-      console.log('UPLOAD RESPONSE:', uploadResp.status, uploadJson);
+      console.log('UPLOAD RESPONSE:', uploadJson);
 
       let filename = null;
       if (uploadJson) {
@@ -449,7 +476,7 @@ export default function Upload() {
       }
 
       if (!filename) {
-        const debug = uploadJson ? JSON.stringify(uploadJson) : `status ${uploadResp.status}`;
+        const debug = uploadJson ? JSON.stringify(uploadJson) : 'No response data';
         throw new Error(`Upload did not return backend filename. Debug: ${debug}`);
       }
 
@@ -458,7 +485,7 @@ export default function Upload() {
 
       // Step 2: Detect text type and suggest OCR if needed
       setProcessingStep('Analyzing document...');
-      setProgress(30);
+      setProgress(35);
       
       const textTypeInfo = await detectTextType(filename);
       if (textTypeInfo && textTypeInfo.text_type === 'scanned' && !settings.useOcr) {
@@ -471,7 +498,7 @@ export default function Upload() {
 
       // Step 3: Extract text
       setProcessingStep('Extracting text...');
-      setProgress(50);
+      setProgress(55);
       
       const extractParams = new URLSearchParams({
         use_ocr: settings.useOcr,
@@ -496,7 +523,7 @@ export default function Upload() {
 
       // Step 4: Clean text
       setProcessingStep('Cleaning text...');
-      setProgress(70);
+      setProgress(75);
       
       const cleanURL = `${API_BASE}/api/clean/text/${encodedFilename}?remove_stopwords=true&normalize_whitespace=true&remove_special_chars=true&min_sentence_length=15`;
       const cleanResp = await fetch(cleanURL, { 
